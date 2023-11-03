@@ -1,0 +1,69 @@
+# TASK A.
+# QUSTION Which country has the highest number of confirmed cases?
+#SOLUTION:
+#Getting the confirmed column and country column
+country_with_highest_confirmed = df.loc[df['Confirmed'].idxmax()]['Country/Region']
+#printing the results on the screen
+print(f"The country with the highest number of confirmed cases is: {country_with_highest_confirmed}")
+
+
+#TASK B
+country_with_least_confirmed = df.loc[df['Confirmed'].idxmin()]['Country/Region']
+print(f"The country with the least number of confirmed cases is: {country_with_least_confirmed}")
+
+
+#TASK C
+country_with_Highest_Death = df.loc[df['Deaths'].idxmax()]['Country/Region']
+print(f"The country with the Highest number of Death cases is: {country_with_Highest_Death}")
+
+#TASK D
+country_with_lowest_Death = df.loc[df['Deaths'].idxmin()]['Country/Region']
+print(f"The country with the lowest number of Death cases is: {country_with_lowest_Death}")
+
+
+#Importing firstly my Google drive to google colab
+from google.colab import drive
+
+#Mounting my Google drive to be available at google colab
+drive.mount("/content/drive")
+
+#importing pandas package to perfom some comands
+import pandas as pd
+
+#importing the data files to google colab from my Google drive to analyse using python
+data = pd.read_csv('/content/drive/MyDrive/cathey/cathey.csv')
+
+#TASK F
+recovered_cases = 1645
+total_confirmed_cases = 3664
+recovery_rate = (recovered_cases / total_confirmed_cases) * 100
+print(f"The disease recovery rate for Malawi is approximately {recovery_rate:.2f}%")
+
+#TASK G
+total_deaths_europe = sum(europe_deaths)
+number_of_data_points = len(europe_deaths)
+mean_death_rate_europe = total_deaths_europe / number_of_data_points
+print("Mean death rate for Europe:", mean_death_rate_europe)
+
+#task J
+
+total_confirmed = sum(confirmed_cases)
+total_deaths = sum(deaths)
+overall_death_rate = (total_deaths / total_confirmed) * 100
+print(f"Overall Death Rate: {overall_death_rate:.2f}%")
+
+
+df = pd.DataFrame(data)
+unique_regions = df['WHO Region'].unique()
+num_regions = len(unique_regions)
+grouped_data = df.groupby('WHO Region')
+print(f"Number of unique WHO regions: {num_regions}")
+print(f"Unique WHO regions: {unique_regions}")
+
+#task i
+import matplotlib.pyplot as plt  
+plt.bar(top10['Country/Region'], top10['New cases'])
+plt.title('Top 10 Countries by New Cases in Past Week')
+plt.xticks(rotation=90) 
+plt.tight_layout()
+plt.show()
