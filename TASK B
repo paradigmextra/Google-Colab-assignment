@@ -1,0 +1,5 @@
+#TASK B
+import pandas as pd
+df = pd.read_csv('country_wise_latest.csv')
+country_with_least_confirmed = df.loc[df['Confirmed'].idxmin()]['Country/Region']
+print(f"The country with the least number of confirmed cases is: {country_with_least_confirmed}")
