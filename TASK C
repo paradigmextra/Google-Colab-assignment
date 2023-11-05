@@ -1,0 +1,5 @@
+#TASK C
+import pandas as pd
+df = pd.read_csv('country_wise_latest.csv')
+country_with_Highest_Death = df.loc[df['Deaths'].idxmax()]['Country/Region']
+print(f"The country with the Highest number of Death cases is: {country_with_Highest_Death}")
