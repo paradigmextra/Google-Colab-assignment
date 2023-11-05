@@ -1,0 +1,7 @@
+#task I
+import matplotlib.pyplot as plt
+plt.bar(top10['Country/Region'], top10['New cases'])
+plt.title('Top 10 Countries by New Cases in Past Week')
+plt.xticks(rotation=90)
+plt.tight_layout()
+plt.show()
