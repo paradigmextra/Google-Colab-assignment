@@ -1,0 +1,5 @@
+#TASK K
+import pandas as pd
+df = pd.read_csv('country_wise_latest.csv')
+malawi = df[df['Country/Region']=='Malawi']
+print((malawi['New cases'].values[0] / malawi['Confirmed last week'].values[0] - 1) * 100)
