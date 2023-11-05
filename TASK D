@@ -1,0 +1,5 @@
+#TASK D
+import pandas as pd
+df = pd.read_csv('country_wise_latest.csv')
+country_with_lowest_Death = df.loc[df['Deaths'].idxmin()]['Country/Region']
+print(f"The country with the lowest number of Death cases is: {country_with_lowest_Death}")
